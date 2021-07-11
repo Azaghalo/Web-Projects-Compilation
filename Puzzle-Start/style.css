@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: steelblue;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.puzzle-wrapper {
+	width: 100%;
+	height: 100%;
+	max-width: 800px;
+	max-height: 800px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	gap: 2px 2px;
+	grid-template-areas:
+		'. . . .'
+		'. . . .'
+		'. . . .'
+		'. . . .';
+}
+
+.empty {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	border: solid 3px black;
+	background-color: white;
+}
+
+.fill {
+	background-image: url('http://source.unsplash.com/random/150x150');
+	height: 100%;
+	width: 100%;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	transform: rotate(0deg);
+	transition: transform 0;
+	position: absolute;
+}
+
+.hold {
+	border: solid 5px #ccc;
+	transform: rotate(90deg);
+}
+
+.rotate-90 {
+	transform: rotate(90deg);
+	transition: transform 0.4s ease-out;
+}
+
+.rotate-180 {
+	transform: rotate(180deg);
+	transition: transform 0.4s ease-out;
+}
+
+.rotate-270 {
+	transform: rotate(270deg);
+	transition: transform 0.4s ease-out;
+}
+
+.rotate-360 {
+	transform: rotate(360deg);
+	transition: transform 0.4s ease-out;
+}
+
+.hovered {
+	background-color: #333;
+	border-color: white;
+	border-style: dashed;
+}
+
+@media screen and (max-width: 800px) {
+	.puzzle-wrapper {
+		max-width: 600px;
+		max-height: 600px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.puzzle-wrapper {
+		max-width: 400px;
+		max-height: 400px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.puzzle-wrapper {
+		max-width: 250px;
+		max-height: 250px;
+	}
+}
